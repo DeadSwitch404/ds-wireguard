@@ -8,3 +8,8 @@
   ansible.builtin.service:
     name: wg-quick@wg0
     state: restarted
+
+- name: Get_public_key
+  ansible.builtin.shell: wg pubkey < server_private.key > server_public.key
+  args:
+    chdir: /etc/wireguard

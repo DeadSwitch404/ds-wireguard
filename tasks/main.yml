@@ -64,6 +64,7 @@
     group: root
     mode: '0400'
   when: vault_wg_private_key is defined
+  notify: Get_public_key
     
 - name: Enable local IP forwarding in the kernel
   ansible.posix.sysctl:

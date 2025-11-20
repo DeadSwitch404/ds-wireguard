@@ -1,0 +1,16 @@
+# {{ ansible_managed }}
+
+# Server configuration
+[Interface]
+PrivateKey = {{ wg_private_key }}
+Address = {{ wg_vpn_network }}
+ListenPort = {{ wg_vpn_port }}
+SaveConfig = false
+
+# Peer configuration
+{% for name, peer in wg_peers.items() %}
+[Peer]
+# {{ name }}
+PublicKey = {{ peer.public_key }}
+AllowedIPs = {{ peer.allowed_ips }}
+{% endfor %}

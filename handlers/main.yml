@@ -1,0 +1,10 @@
+---
+- name: Restart_UFW
+  ansible.builtin.service:
+    name: ufw
+    state: restarted
+
+- name: Restart_WireGuard
+  ansible.builtin.service:
+    name: wg-quick@wg0
+    state: restarted

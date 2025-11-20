@@ -1,0 +1,3 @@
+---
+wg_vpn_interface: wg0
+wg_vpn_port: 51820

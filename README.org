@@ -19,8 +19,7 @@ The role aims for *simplicity, security, and maintainability* - no manual config
 * Requirements
 - Debian 12+ (Bookworm) or compatible.
 - Sudo access.
-- Ports open on UDP {{ wg_vpn_port }} (default 51820).
-- Optional: DNS records for external clients if routing from outside the LAN.
+- Ports open on UDP ={{ wg_vpn_port }}= (default 51820).
 
 * Role Behavior
 1. Installs WireGuard package.
@@ -28,7 +27,7 @@ The role aims for *simplicity, security, and maintainability* - no manual config
 3. Checks for existing private key file.
 4. Generates a new key pair if no key exists and no vault-provided key is defined.
 5. Writes vault-provided private key if defined.
-6. Enables IPv4 forwarding in the kernel and UFW.
+6. Enables *IPv4 forwarding* in the kernel and UFW.
 7. Configures UFW NAT postrouting and routing rules.
 8. Enables incoming VPN traffic on the configured UDP port.
 9. Reads the private key and deploys a WireGuard configuration from a Jinja2 template.

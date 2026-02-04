@@ -1,5 +1,6 @@
 #+TITLE: WireGuard VPN Server Installer Role
 #+AUTHOR: DeadSwitch | The Silent Architect
+#+OPTIONS: toc:nil num:nil \n:t
 
 * ds-wireguard
 An Ansible role to deploy a full *WireGuard VPN* server on Debian-based hosts.

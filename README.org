@@ -3,13 +3,16 @@
 #+OPTIONS: toc:nil num:nil \n:t
 
 * ds-wireguard
-An Ansible role to deploy a full *WireGuard VPN* server on Debian-based hosts.
-This role is designed for *on-premises, self-hosted* deployments.
-It is idempotent and can safely be re-run at any time.
+
+This Ansible role can deploy a *WireGuard VPN* server on Debian-based hosts.
+
+The role is designed for *on-premises, self-hosted* deployments.
+
+It is idempotent.
 
 *Stack components:*
 - WireGuard kernel module and user tools
-- SystemD for service management
+- Systemd for service management
 - UFW firewall integration
 - Optional support for vault-managed private keys
 - NAT / IP forwarding configuration
@@ -18,11 +21,13 @@ It is idempotent and can safely be re-run at any time.
 The role aims for *simplicity, security, and maintainability* - no manual configuration steps required after initial deployment.
 
 * Requirements
+
 - Debian 12+ (Bookworm) or compatible.
 - Sudo access.
 - Ports open on UDP ={{ wg_vpn_port }}= (default 51820).
 
 * Role Behavior
+
 1. Installs WireGuard package.
 2. Ensures =/etc/wireguard= directory exists with proper permissions.
 3. Checks for existing private key file.
@@ -35,6 +40,7 @@ The role aims for *simplicity, security, and maintainability* - no manual config
 10. Enables and starts the WireGuard service via SystemD.
 
 * Variables
+
 The following variables must be defined, typically in =group_vars= or your inventory:
 
 | Variable               | Description                                                   |
@@ -56,6 +62,7 @@ wg_peers:
 #+end_src
 
 * Example Playbook
+
 #+begin_src yaml
 - name: Deploy WireGuard VPN server
   hosts: vpn-servers
@@ -75,6 +82,7 @@ wg_peers:
 #+end_src
 
 * Idempotence
+
 *The role is fully idempotent.*
 
 Re-running it will:
@@ -84,6 +92,7 @@ Re-running it will:
 - Restart WireGuard only when the configuration changes.
 
 * Operational Notes
+
 - Ensure the physical network interface for NAT (=wg_network_interface=) is correct.
 - UFW must be installed and enabled on the host.
 - Vault-managed keys provide deterministic server identity across deployments.
@@ -91,10 +100,12 @@ Re-running it will:
 - IPv4 forwarding must be enabled for routing between VPN and LAN.
 
 * Handlers
+
 - =Restart_WireGuard=
 - =Restart_UFW=
 
 * License
+
 MIT License
 
 =[ Fear the Silence. Fear the Switch. ]=

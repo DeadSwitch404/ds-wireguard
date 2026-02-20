@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  role_name: ds-wireguard
+  namespace: ds
+  author: "DeadSwitch"
+  description: "This role installs the Wireguard VPN server"
+  license: MIT
+  min_ansible_version: "2.14"
+  platforms:
+    - name: Debian
+      versions:
+        - buster
+        - bookworm
+        - trixie
+
+dependencies:
+  - role: ds_ufw

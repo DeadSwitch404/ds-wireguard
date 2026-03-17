@@ -4,7 +4,7 @@
 
 * ds-wireguard
 
-This Ansible role can deploy a *Wireguard VPN* server on Debian-based hosts.
+This Ansible role deploys a *Wireguard VPN* server on Debian-based hosts.
 
 The role is designed for *on-premises, self-hosted* deployments.
 
@@ -13,7 +13,6 @@ It is idempotent.
 *Stack components:*
 - Wireguard kernel module and user tools
 - Systemd for service management
-- UFW firewall integration
 - Optional support for vault-managed private keys
 - NAT / IP forwarding configuration
 - Configurable peers via Ansible variables
